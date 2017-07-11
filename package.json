@@ -5,6 +5,15 @@
 	"repository": "https://github.com/DDCreationStudios/reduxProduction.git",
 	"author": "DanielDeutsch <deudan1010@gmail.com>",
 	"license": "none",
+	"scripts": {
+		"prestart": "babel-node setup/message.js",
+		"start": "npm-run-all --parallel test:watch open:src lint:watch",
+    "open:src": "babel-node setup/srcServer.js",
+		"lint": "node_modules/.bin/esw webpack.config.* src setup",
+		"lint:watch": "yarn run lint -- --watch",
+		"test": "mocha --reporter progress setup/testSetup.js \"src/**/*.test.js\"",
+    "test:watch": "npm run test -- --watch"
+	},
 	"dependencies": {
 		"babel-polyfill": "6.8.0",
 		"bootstrap": "3.3.6",
