@@ -11,7 +11,7 @@
     "open:src": "babel-node setup/srcServer.js",
 		"lint": "node_modules/.bin/esw webpack.config.* src setup",
 		"lint:watch": "yarn run lint -- --watch",
-		"test": "mocha --reporter progress setup/testSetup.js \"src/**/*.test.js\"",
+		"test": "mocha --reporter spec setup/testSetup.js \"src/**/*.test.js\"",
     "test:watch": "npm run test -- --watch"
 	},
 	"dependencies": {
