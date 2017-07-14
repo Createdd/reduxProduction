@@ -33,7 +33,7 @@ class CoursesPage extends React.Component {
 					type="submit"
 					value="Add Course"
 					className="btn btn-primary"
-					onClcik={this.redirectToAddCoursePage}
+					onClick={this.redirectToAddCoursePage}
 				/>
 				<CourseList courses={courses} />
 			</div>
