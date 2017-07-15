@@ -12,7 +12,13 @@
 		"lint": "node_modules/.bin/esw webpack.config.* src setup",
 		"lint:watch": "yarn run lint -- --watch",
 		"test": "mocha --reporter spec setup/testSetup.js \"src/**/*.test.js\"",
-    "test:watch": "npm run test -- --watch"
+		"test:watch": "npm run test -- --watch",
+		"clean-dist": "npm run remove-dist && mkdir dist",
+    "remove-dist": "node_modules/.bin/rimraf ./dist",
+    "build:html": "babel-node setup/buildHtml.js",
+    "prebuild": "npm-run-all clean-dist test lint build:html",
+    "build": "babel-node setup/build.js",
+    "postbuild": "babel-node setup/distServer.js"
 	},
 	"dependencies": {
 		"babel-polyfill": "6.8.0",
